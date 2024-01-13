@@ -6,30 +6,37 @@ import React from "react";
 class MyComponent extends React.Component {
   state = { name: "QUY", address: "TDC", age: 22 };
 
-  handleClick(event) {
-    console.log("Random", Math.floor(Math.random() * 100) + 1);
+  handleOnSubmit = (event) => {
+    //console.log("Random", Math.floor(Math.random() * 100) + 1);
     // merge State => react class
-    // this.setState({
-    //   name: "Q U Y",
-    // });
-  }
+    event.preventDefault();
+    console.log(this.state);
+  };
 
-  handleOnMouseOver(event) {
-    console.log(event);
-  }
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
 
   // JSX
   render() {
     return (
       <div>
         My name is {this.state.name} and I'm from {this.state.address}
-        <button
-          onClick={(event) => {
-            this.handleClick(event);
+        <form
+          onSubmit={(event) => {
+            this.handleOnSubmit(event);
           }}
         >
-          Click
-        </button>
+          <input
+            type="text"
+            onChange={(event) => {
+              this.handleOnChangeInput(event);
+            }}
+          ></input>
+          <button>Submit</button>
+        </form>
       </div>
     );
   }
