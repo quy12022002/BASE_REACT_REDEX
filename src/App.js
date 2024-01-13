@@ -9,10 +9,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>
-          Hello world với QUY
-          <MyComponent></MyComponent>
-        </p>
+        <p>Hello world với QUY</p>
+        <MyComponent></MyComponent>
       </div>
     );
   }
@@ -21,7 +19,6 @@ class App extends React.Component {
 // const App = () => {
 //   const count = useSelector(state => state.counter.count);
 //   const dispatch = useDispatch();
-
 //   return (
 //     <div className="App">
 //       <header className="App-header">
