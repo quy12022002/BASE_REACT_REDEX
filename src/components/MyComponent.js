@@ -2,41 +2,23 @@
 // function component
 
 import React from "react";
+import UserInfor from "./UserInfor";
+import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
-  state = { name: "QUY", address: "TDC", age: 22 };
-
-  handleOnSubmit = (event) => {
-    //console.log("Random", Math.floor(Math.random() * 100) + 1);
-    // merge State => react class
-    event.preventDefault();
-    console.log(this.state);
+  state = {
+    listUsers: [
+      { id: 1, name: "QUY", age: 21 },
+      { id: 2, name: "QUY1", age: 21 },
+      { id: 3, name: "QUY2", age: 21 },
+    ],
   };
-
-  handleOnChangeInput = (event) => {
-    this.setState({
-      name: event.target.value,
-    });
-  };
-
   // JSX
   render() {
     return (
       <div>
-        My name is {this.state.name} and I'm from {this.state.address}
-        <form
-          onSubmit={(event) => {
-            this.handleOnSubmit(event);
-          }}
-        >
-          <input
-            type="text"
-            onChange={(event) => {
-              this.handleOnChangeInput(event);
-            }}
-          ></input>
-          <button>Submit</button>
-        </form>
+        <UserInfor />
+        <DisplayInfor listUsers={this.state.listUsers} />
       </div>
     );
   }
