@@ -11,6 +11,7 @@ class DisplayInfor extends React.Component {
     });
   };
 
+  //template + logic js
   render() {
     // destructuring array/object
     const { listUsers } = this.props;
@@ -27,19 +28,24 @@ class DisplayInfor extends React.Component {
           </span>
         </div>
         {this.state.isShowOrHide && (
-          <div>
+          <>
             {listUsers.map((item) => {
               return (
                 <div
                   key={item.id}
                   className={+item.age <= 16 ? "green" : "red"}
                 >
-                  My name's {item.name} and my age's {+item.age}
+                  <p>
+                    My name's {item.name} and my age's {item.age}
+                  </p>
+                  <button onClick={() => this.props.hanldleDeleteUser(item.id)}>
+                    Delete
+                  </button>
                   <hr />
                 </div>
               );
             })}
-          </div>
+          </>
         )}
       </div>
     );
