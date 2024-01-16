@@ -1,13 +1,17 @@
 import React from "react";
 
-class UserInfor extends React.Component {
-  state = { name: "QUY", address: "TDC", age: 22 };
+class AddUserInfor extends React.Component {
+  state = { name: "QUY", age: 22 };
 
   handleOnSubmit = (event) => {
     //console.log("Random", Math.floor(Math.random() * 100) + 1);
     // merge State => react class
     event.preventDefault();
-    console.log(this.state);
+    this.props.hanldleAddNewUser({
+      id: Math.floor(Math.random() * 100 + 1) + "-random",
+      name: this.state.name,
+      age: this.state.age,
+    });
   };
 
   handleOnChangeName = (event) => {
@@ -54,4 +58,4 @@ class UserInfor extends React.Component {
   }
 }
 
-export default UserInfor;
+export default AddUserInfor;

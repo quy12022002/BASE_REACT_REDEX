@@ -1,8 +1,9 @@
+import "./DisplayInfor.scss";
 import React from "react";
 
 class DisplayInfor extends React.Component {
   state = {
-    isShowOrHide: false,
+    isShowOrHide: true,
   };
   handleShowHide = () => {
     this.setState({
@@ -15,7 +16,7 @@ class DisplayInfor extends React.Component {
     const { listUsers } = this.props;
     // props: viet tat properties
     return (
-      <div>
+      <div className="display-info-container">
         <div>
           <span
             onClick={() => {
@@ -29,8 +30,12 @@ class DisplayInfor extends React.Component {
           <div>
             {listUsers.map((item) => {
               return (
-                <div key={item.id} className={item.age <= 16 ? "green" : "red"}>
-                  My name's {item.name} and my age's {item.age}
+                <div
+                  key={item.id}
+                  className={+item.age <= 16 ? "green" : "red"}
+                >
+                  My name's {item.name} and my age's {+item.age}
+                  <hr />
                 </div>
               );
             })}
