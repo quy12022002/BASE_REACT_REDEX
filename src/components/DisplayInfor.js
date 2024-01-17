@@ -1,5 +1,5 @@
 import "./DisplayInfor.scss";
-import React from "react";
+import React, { useState } from "react";
 
 // stateless vs stateful
 // class DisplayInfor extends React.Component {
@@ -37,14 +37,27 @@ import React from "react";
 // }
 
 const DisplayInfor = (props) => {
-  // destructuring array/object
   const { listUsers } = props;
+
+  const [isShowOrHide, setShowOrHide] = useState(true);
+
+  const hanldleShowOrHide = () => {
+    setShowOrHide(!isShowOrHide);
+  };
   //template + logic js
   // props: viet tat properties
   return (
     <div className="display-info-container">
-      <div>Show list users</div>
-      {true && (
+      <div>
+        <span
+          onClick={() => {
+            hanldleShowOrHide();
+          }}
+        >
+          {isShowOrHide ? "Show" : "Hide"} list users
+        </span>
+      </div>
+      {isShowOrHide && (
         <>
           {listUsers.map((item) => {
             return (
