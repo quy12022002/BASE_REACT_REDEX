@@ -38,9 +38,7 @@ import React, { useState } from "react";
 
 const DisplayInfor = (props) => {
   const { listUsers } = props;
-
   const [isShowOrHide, setShowOrHide] = useState(true);
-
   const hanldleShowOrHide = () => {
     setShowOrHide(!isShowOrHide);
   };
